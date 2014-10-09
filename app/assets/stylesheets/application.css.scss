@@ -1,2 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar {
+background-color: orange;
+font-color: black;
+}
+
+.jumbotron {
+  margin: 75px 155px 75px 155px;
+  border: 1px solid black;
+}
