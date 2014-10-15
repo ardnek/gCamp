@@ -1,0 +1,9 @@
+
+<div class="container">
+  <h2>Frequently Asked Questions</h2>
+<% @questions.each do |question| %>
+  <p style="color:black"><h4><strong><%= question.question %></strong></h4></p>
+  <p style="color:gray"><%= question.answer %></p>
+<% end %>
+
+</div>
