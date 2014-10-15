@@ -72,5 +72,6 @@
 
 
 <% @quotes.each do |quote| %>
-  <p><%= quote %></p>
+  <p><%= quote.text %></p>
+  <p style="color:gray"><em><%= quote.author %></em></p>
 <% end %>
