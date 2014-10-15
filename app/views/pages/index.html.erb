@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-md-4">
 <div class="thumbnail">
-  <%= image_tag "classroom.jpg", height: '500', width: '333'%>
+  <%= image_tag "classroom.jpg", height: '500', width: '333' %>
 
 </div>
 
@@ -33,7 +33,7 @@
 
         <div class="col-md-4">
           <div class="thumbnail">
-            <%= image_tag "datacenter.jpg", height: '500', width: '333'%>
+            <%= image_tag "datacenter.jpg", height: '500', width: '333' %>
 
           </div>
           <div class="panel panel-default">
@@ -53,7 +53,7 @@
        </div>
         <div class="col-md-4">
           <div class="thumbnail">
-            <%= image_tag "classroom.jpg", height: '500', width: '333'%>
+            <%= image_tag "classroom.jpg", height: '500', width: '333' %>
 
           </div>
           <div class="panel panel-default">
@@ -70,13 +70,7 @@
         </div>
 </div>
 
-<% quotes = [
-  "\"Enlightenment is the unprogrammed state.\" -Jed McKenna",
-  "\"You've baked a really lovely cake, but then you've used dog shit for frosting.\" -Steve Jobs",
-  "\"Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.\" -John Woods"
-  ] %>
 
-    <% quotes.each do |quote| %>
-    <p><%= quote %></p>
-
+<% @quotes.each do |quote| %>
+  <p><%= quote %></p>
 <% end %>
