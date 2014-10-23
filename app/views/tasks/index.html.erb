@@ -2,9 +2,13 @@
 
 
 
-<h1>Listing tasks</h1>
+<h1>Tasks</h1>
 
-<table>
+<div class="pull-right">
+<%= link_to 'New Task', new_task_path, class: 'btn btn-success btn-sm' %>
+</div>
+
+<table class="table table-condensed">
   <thead>
     <tr>
       <th>Description</th>
@@ -17,16 +21,20 @@
       <tr>
         <td><%= task.description %></td>
         <td><%= task.complete %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+
+       <div class="pull-right">
+          <%= link_to 'Show', task, class: 'btn btn-info btn-xs' %>
+          <%= link_to 'Edit', edit_task_path(task), class: 'btn btn-warning btn-xs' %>
+          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+      </div>
+
+      </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Task', new_task_path %>
 
 </div>

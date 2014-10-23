@@ -1,7 +1,9 @@
 <div class="container">
 
+
 <%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
+
 
 
     <div id="error_explanation">
@@ -22,10 +24,13 @@
     <%= f.text_field :description %>
   </div>
 
+
   <div class="field">
    <%= f.label :complete %>
    <%= f.check_box :complete %>
   </div>
+
+
 
   <div class="actions">
     <%= f.submit %>
