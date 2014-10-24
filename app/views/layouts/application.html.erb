@@ -12,20 +12,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <!-- <link rel="icon" href="../../favicon.ico"> -->
 
-    <title>Jumbotron Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
+    <title>gCamp</title>
 
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,7 +30,7 @@
   </head>
 
   <body>
-    <%= yield %>
+
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -58,28 +52,43 @@
 
 
       </div>
-    </div>
+</div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
 
 
-      <hr>
+
+      <%= yield %>
+
+      <br>
 
       <footer class="container">
-        <p>
-        <%= link_to "About", about_path %>  |  <%= link_to "Terms", terms_path %> |  <%= link_to "FAQ", faq_path %>
 
-      </p>
+          <%= link_to "About", about_path %>  |  <%= link_to "Terms", terms_path %> |  <%= link_to "FAQ", faq_path %> |  <%= link_to "Tasks", tasks_path %>
+
+
+            <div class=col-md-offset-10>
+
+            <%= link_to "www.linkedin.com/pub/kendra-dodds/70/b47/413/" do %>
+              <%= image_tag("linkedinLogo.png", width: "25em") %>
+              <% end %>
+
+              <%= link_to "https://github.com/ardnek" do %>
+                <%= image_tag("githubLogo.png", width: "25em") %>
+                <% end %>
+
+                <%= link_to "https://twitter.com/kendradodds" do %>
+                  <%= image_tag("twitterLogo.png", width: "25em") %>
+                  <% end %>
+
+                  <%= link_to "https://students.gschool.it/students/104" do %>
+                    <%= image_tag("gschool.png", width: "25em") %>
+                    <% end %>
+            </div>
       </footer>
-    </div> <!-- /container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </div>
+  <!-- /container -->
+    <br>
   </body>
 </html>
