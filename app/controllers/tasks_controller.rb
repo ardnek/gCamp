@@ -19,13 +19,14 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @edit_task = true
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
+  #  @task.complete = false
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
