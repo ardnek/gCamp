@@ -55,13 +55,17 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
 
 <div class="container">
+    <% if flash[:success] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:success] %>
+      </div>
+      <% end %>
 
-<% if flash[:success] %>
-<div class="alert alert-success" role="alert">
-<%= flash[:success] %>
-</div>
-<% end %>
-
+    <% if flash[:notice] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
 </div>
 
 
@@ -104,7 +108,7 @@
   </div>
 
   <!-- /container -->
-  
+
     <br>
   </body>
 </html>

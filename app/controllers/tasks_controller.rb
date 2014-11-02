@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
@@ -42,6 +42,7 @@ end
       end
     end
   end
+
 
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
