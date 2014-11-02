@@ -25,9 +25,13 @@ class UsersController < ApplicationController
     users_param=params.require(:user).permit(:first_name, :last_name, :email)
     @user=User.find(params[:id])
     if @user.update(users_param)
-      flash[:success]="User was successfully updated" 
+      flash[:success]="User was successfully updated"
     redirect_to users_path
   end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def destroy

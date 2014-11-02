@@ -7,16 +7,16 @@
   <table class="table table-condensed">
     <thead>
       <tr>
-      <th>Name<th>
-      <th>Email<th>
+      <th>Name</th>
+      <th>Email</th>
       </tr>
+
     </thead>
     <tbody>
       <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
+        <td><%= link_to user.full_name, user %></td>
+        <td><%= mail_to user.email %></td>
 
         <td class="col-md-3">
          <div class="pull-right">
