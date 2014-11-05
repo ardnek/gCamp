@@ -14,7 +14,7 @@ class AuthenticationController < ApplicationController
   def destroy
     # session[:id] = nil
     session.clear
-    redirect_to root_path, notice: "Have a nice day!"
+    redirect_to root_path, notice: "Have a nice day :) !"
   end
 
 end
