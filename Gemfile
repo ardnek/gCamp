@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem "capybara"
+  gem 'launchy'
+end
+
+
 gem "pg"
 
 group :production do

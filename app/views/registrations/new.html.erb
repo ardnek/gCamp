@@ -6,11 +6,11 @@
 <%= form_for @user, url: signup_path do |f| %>
 
   <% if @user.errors.present? %>
-    <ul>
       <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <p class="text-danger">
+          <%= message %>
+        </p>
       <% end %>
-    </ul>
   <% end %>
 
   <div>
@@ -52,7 +52,7 @@
   </div>
 
   <div>
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :class => "btn btn-primary" %>
   </div>
 
 <% end %>

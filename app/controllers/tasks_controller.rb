@@ -46,6 +46,7 @@ end
 
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
+
   def update
     respond_to do |format|
       if @task.update(task_params)
