@@ -12,8 +12,7 @@ class UsersController < ApplicationController
     users_param=params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     @user=User.new(users_param)
     if @user.save
-      flash[:success]="User was successfully created"
-    redirect_to users_path
+    redirect_to users_path, notice: "User was successfully created."
   else
       render :new
   end
