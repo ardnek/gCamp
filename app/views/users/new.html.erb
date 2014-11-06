@@ -1,38 +1,49 @@
 <div class="container">
-  <h2>New User</h2>
+<h2>New User</h2>
 
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {class: "form-horizontal"}) do |f| %>
 
-<div>
-<%= f.label :first_name %>
+<div class="form-group">
+<%= f.label :first_name, class: "col-sm-3 control-label" %>
+<div class="col-sm-9">
 <%= f.text_field :first_name %>
 </div>
+</div>
 
-<div>
-<%= f.label :last_name %>
+
+<div class="form-group">
+<%= f.label :last_name, class: "col-sm-3 control-label" %>
+<div class="col-sm-9">
 <%= f.text_field :last_name %>
 </div>
+</div>
 
-<div>
-<%= f.label :email %>
+<div class="form-group">
+<%= f.label :email, class: "col-sm-3 control-label" %>
+<div class="col-sm-9">
 <%= f.text_field :email %>
 </div>
+</div>
 
-<div>
-<%= f.label :password %>
+<div class="form-group">
+<%= f.label :password, class: "col-sm-3 control-label" %>
+<div class="col-sm-9">
 <%= f.password_field :password %>
 </div>
+</div>
 
-<div>
-<%= f.label :password_confirmation %>
+<div class="form-group">
+<%= f.label :password_confirmation, class: "col-sm-3 control-label" %>
+<div class="col-sm-9">
 <%=  f.password_field :password_confirmation %>
 </div>
-
-
-<div class="actions">
-<%= f.submit "Create user", :class => "btn btn-info btn-sm" %>
 </div>
 
+<div class="actions">
+<div class="col-sm-offset-3 col-sm-9">
+<%= f.submit "Create user", class: "btn btn-info btn-sm" %>
+</div>
+</div>
 
 <% end %>
 </div>
