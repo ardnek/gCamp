@@ -1,35 +1,30 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar {
-  font-color: black;
-}
 
 body {
     padding-top: 60px;
 }
 
-.jumbotron {
+.navbar-nav {
+    padding-top: 15px;
+}
+
+/*.navbar-brand {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}*/
+
+/*.navbar {
+  font-color: black;
+}*/
+
+/*.jumbotron {
   margin: 75px px 75px px;
   border: 1px solid black;
-}
+}*/
 
-.navbar-brand {
-  color: black;
-  font-size: 30px;
-  text-decoration: none;
-  }
-
-.panel-body {
+/*.panel-body {
   min-height: 100px;
-}
-
-.navbar-nav {
-  color:#D8D8D8;
-  :link {
-  color:#D8D8D8;
-  }
-  :visited {
-  color:#D8D8D8;
-  }
-}
+}*/

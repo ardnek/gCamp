@@ -46,20 +46,20 @@
           </button>
 
           <!-- <a class="navbar-brand" href="#">gCamp</a> -->
-          <%= link_to "gCamp", root_path, class:"navbar-brand" %>
+        <%= link_to "gCamp", root_path, class:"navbar-brand" %>
 
 
         </div>
 
 
-        <div class="ul nav navbar-nav navbar-right">
+        <div class="ul nav navbar-nav navbar-right" style="color:#D8D8D8;">
           <% if current_user %>
           <%= current_user.full_name %>
-            <%= link_to "| Sign Out", signout_path %>
+            <%= link_to "| Sign Out", signout_path, style: 'color:#D8D8D8;' %>
           <% else %>
-            <%= link_to "Sign Up |", signup_path %>
+            <%= link_to "Sign Up |", signup_path, style: 'color:#D8D8D8;' %>
 
-            <%= link_to "Sign In", signin_path %>
+            <%= link_to "Sign In", signin_path, style: 'color:#D8D8D8;' %>
           <% end %>
         </div>
 
