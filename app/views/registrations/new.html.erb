@@ -6,9 +6,9 @@
 <%= form_for @user, url: signup_path do |f| %>
 
   <% if @user.errors.present? %>
-    <ul class"text-danger">
+    <ul>
       <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li class="text-danger"><%= message %></li>
       <% end %>
     </ul>
   <% end %>
