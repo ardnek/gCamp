@@ -5,11 +5,11 @@ feature "Signin" do
   # scenario "authentication" do
   # sign up w/errors
   # sign up w/success
-  # sign out
   # sign in w/errors
   # sign in successfully
-  # user attempts to register with invalid info
+  # sign out
   # user registers with valid info
+  # user attempts to register with invalid info
   # expect(page.current_path).to eq(tasks_path URL)
   # expect(page).to have_content("Invalid email / password combination")
 

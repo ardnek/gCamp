@@ -17,35 +17,34 @@
         <% end %>
 
       <div class="form-group">
-          <%= f.label :description, class: "col-sm-3 control-label" %>
-        <div class="col-sm-9">
-          <%= f.text_field :description %>
+          <%= f.label :description, class: "col-sm-2 control-label" %>
+        <div class="col-sm-4">
+          <%= f.text_field :description, class: "form-control" %>
         </div>
       </div>
 
       <div class="form-group">
-          <%= f.label :due_date, class: "col-sm-3 control-label" %>
-        <div class="col-sm-9">
-          <%= f.date_field :date %>
+          <%= f.label :date, class: "col-sm-2 control-label" %>
+        <div class="col-sm-4">
+          <%= f.date_field :date, class: "form-control" %>
         </div>
       </div>
 
 
       <% if @edit_task == true %>
 
-      <div class="field">
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
           <%= f.label :complete %>
-          <%= f.check_box :complete %>
+          <%= f.check_box :complete, class: "checkbox" %>
       </div>
           <% end %>
 
-
     <div class="actions">
-      <div class="col-sm-offset-3 col-sm-9">
+      <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: 'btn btn-info btn-sm' %>
       </div>
     </div>
-
 
 <br>
 
