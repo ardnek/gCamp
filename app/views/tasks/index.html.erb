@@ -24,7 +24,7 @@
       <tr>
         <td class="col-md-6"><%= task.description %></td>
         <td class="col-md-1"><%= task.complete %></td>
-        <td class="col-md-1"><%= task.date %></td>
+        <td class="col-md-1"><%= task.date.try(:strftime, "%m/%d/%Y") %></td>
 
 
       <td class="col-md-3">
