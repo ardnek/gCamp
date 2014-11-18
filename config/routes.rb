@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :tasks
+  resources :projects do
+    resources :tasks
+  end
   resources :users
-  resources :projects
+
 
   root "pages#index"
 
