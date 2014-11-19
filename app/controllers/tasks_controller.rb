@@ -37,6 +37,7 @@ end
 
   # GET /tasks/1/edit
   def edit
+    @edit_task = true
   end
 
   # POST /tasks
