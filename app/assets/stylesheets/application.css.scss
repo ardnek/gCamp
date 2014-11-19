@@ -10,6 +10,11 @@ body {
     padding-top: 15px;
 }
 
+.panel-body {
+  min-height: 100px;
+}
+
+
 /*.navbar-brand {
   color: black;
   font-size: 20px;
@@ -23,8 +28,4 @@ body {
 /*.jumbotron {
   margin: 75px px 75px px;
   border: 1px solid black;
-}*/
-
-/*.panel-body {
-  min-height: 100px;
 }*/
