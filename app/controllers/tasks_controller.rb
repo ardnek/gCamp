@@ -8,22 +8,13 @@ class TasksController < ApplicationController
 before_action :set_task, only: [:show, :edit, :update, :destroy]
 
 
-  #def index
-    #@tasks = if params[:sort_by] == 'complete'
-      #@project.tasks.where(:complete => false)
-    #else
-      #@project.tasks.all
-    #end
-  #end
-
-    def index
+  def index
+    @tasks = params[:type] == "incomplete"
+    @tasks = @project.tasks.where(complete:false)
+  if params[:type] == "all"
     @tasks = @project.tasks.all
-    if params[:type] == "all"
-      @tasks = @project.tasks.all
-    elsif params[:type] == "incomplete"
-      @tasks = @project.tasks.where(complete:false)
+    end
   end
-end
 
   # GET /tasks/1
   # GET /tasks/1.json
