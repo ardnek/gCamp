@@ -1,79 +1,76 @@
 <div class="container">
 
-<div class="jumbotron">
-  <div class="container">
-    <h1>gCamp</h1>
-    <p>Your life, organized.</p>
-
+  <div class="jumbotron">
+    <div class="container">
+      <h1>gCamp</h1>
+      <p>Your life, organized.</p>
+    </div>
   </div>
-</div>
-
-
 
       <!-- Example row of columns -->
 
-
-
-      <div class="row">
-        <div class="col-md-4">
-<div class="thumbnail">
-  <%= image_tag "computering.jpg", height: '500', width: '333' %>
-
-</div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-
-              <h3 class="panel-title">Tasks</h3>
-            </div>
-            <div class="panel-body">
-              Grouped by projects and lists. Just the way you like'em.
-            </div>
-          </div>
+  <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <%= image_tag "computering.jpg", height: '500', width: '333' %>
         </div>
 
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">Tasks</h3>
+          </div>
 
-        <div class="col-md-4">
+          <div class="panel-body">
+            Grouped by projects and lists. Just the way you like'em.
+          </div>
+      </div>
+  </div>
+
+
+       <div class="col-md-4">
           <div class="thumbnail">
             <%= image_tag "webTechnology.jpg", height: '500', width: '333' %>
-
           </div>
+
           <div class="panel panel-default">
-            <div class="panel-heading">
+              <div class="panel-heading">
+                <h3 class="panel-title">Documents</h3>
+              </div>
 
-              <h3 class="panel-title">Documents</h3>
-            </div>
-            <div class="panel-body">
+          <div class="panel-body">
               <ul>
-              <li>Upload</li>
-              <li>Comment</li>
-              <li>Revise</li>
-            </ul>
-            </div>
+                <li>Upload</li>
+                <li>Comment</li>
+                <li>Revise</li>
+              </ul>
           </div>
+        </div>
+      </div>
 
-       </div>
-        <div class="col-md-4">
+
+      <div class="col-md-4">
           <div class="thumbnail">
             <%= image_tag "modKit.jpg", height: '500', width: '333' %>
-
           </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
 
+        <div class="panel panel-default">
+           <div class="panel-heading">
               <h3 class="panel-title">Comments</h3>
-            </div>
-            <div class="panel-body">
-              <ul><li>Comments on tasks and documents</li>
-              <li>Get email notifications</li></ul>
-            </div>
-          </div>
+           </div>
 
-        </div>
+         <div class="panel-body">
+              <ul>
+                <li>Comments on tasks and documents</li>
+                <li>Get email notifications</li>
+              </ul>
+          </div>
+       </div>
+
+    </div>
 </div>
 
 
-<% @quotes.each do |quote| %>
-  <p><%= quote.text %></p>
-  <p style="color:gray"><em><%= quote.author %></em></p>
-<% end %>
+    <% @quotes.each do |quote| %>
+        <p><%= quote.text %></p>
+        <p style="color:gray"><em><%= quote.author %></em></p>
+    <% end %>
