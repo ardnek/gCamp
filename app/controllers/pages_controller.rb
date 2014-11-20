@@ -2,12 +2,12 @@ class PagesController < ApplicationController
     def index
 
     quote1 = Quote.new
-    quote1.text = '"Enlightenment is the unprogrammed state."'
-    quote1.author = "-Jed McKenna"
+    quote1.text = '"I\'m not dismissing the value of higher education; I\'m simply saying it comes at the expense of experience."'
+    quote1.author = "-Steve Jobs"
 
     quote2 = Quote.new
-    quote2.text = '"You\'ve baked a really lovely cake, but then you\'ve used dog shit for frosting."'
-    quote2.author = "-Steve Jobs"
+    quote2.text = '"We are the facilitators of our own creative evolution."'
+    quote2.author = "-Bill Hicks"
 
     quote3 = Quote.new
     quote3.text = '"Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live."'
