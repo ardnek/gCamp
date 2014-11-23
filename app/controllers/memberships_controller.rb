@@ -15,10 +15,25 @@ class MembershipsController < ApplicationController
   end
 
   def create
-    @membership = @project.membership.new(membership_params)
-    @membership.save
-    redirect_to project_path(@project)
-  end
+      @membership = @project.memberships.new(membership_params)
+        if @membership.save
+            flash[:success]="Project was successfully created"
+        redirect_to action: "index"
+        end
+      end
+
+  def update
+        if @membership.update(membership_params)
+          redirect_to project_path(@project), notice: 'Task was successfully updated.'
+        else
+          render action: "index"
+      end
+    end
+
+    #@membership = @project.membership.new(membership_params)
+    #@membership.save
+    #redirect_to project_path(@project)
+  #end
 
 
   private
