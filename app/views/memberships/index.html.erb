@@ -26,15 +26,28 @@
 
 </div>
 
-    <% @memberships.each do |membership| %>
-    <tr>
-      <td><%= membership.id %></td>
-      <td><%= membership.role %></td>
-      <td>
-          <%= link_to 'Update', project_memberships_path, class: 'btn btn-info btn-sm' %>
-      </td>
+  <table class="table table-condensed">
+    <tbody>
+      <% @project.memberships.each do |membership| %>
+      <%= form_for [@project, @membership] do |f| %>
+      <tr>
+        <td><%= membership.user.full_name %></td>
 
-    </tr>
-    <% end %>
+        <td>
+          <%= f.select :role, options_for_select(["Member", "Owner"]), {include_blank: false}, {class: "form-control"} %>
+        </td>
 
-<br>
+        <td>
+          <%= f.submit "Update", class: "btn btn-info btn-sm" %>
+        </td>
+
+        <td>
+          <%= link_to "", project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?'},
+          class: "glyphicon glyphicon-remove" %>
+        </td>
+     </tr>
+
+     <% end %>
+     <% end %>
+    </tbody>
+ </table>  

@@ -24,9 +24,7 @@ class MembershipsController < ApplicationController
 
   def update
         if @membership.update(membership_params)
-          redirect_to project_path(@project), notice: 'Task was successfully updated.'
-        else
-          render action: "index"
+          redirect_to action: "index", notice: 'User was successfully updated.'
       end
     end
 
