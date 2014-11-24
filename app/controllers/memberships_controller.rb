@@ -18,23 +18,23 @@ class MembershipsController < ApplicationController
   def create
       @membership = @project.memberships.new(membership_params)
         if @membership.save
-        redirect_to project_memberships_path(@project), notice: 'Membership was successfully created.'
+        redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully created."
       end
     end
-    
+
 
 
   def update
     @membership = Membership.find(params[:id])
         @membership.update(membership_params)
-          redirect_to project_memberships_path, notice: 'Membership was successfully updated.'
+          redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was successfully updated."
     end
 
 
   def destroy
     @membership = Membership.find(params[:id])
     @membership.destroy
-      redirect_to project_memberships_path, notice:  "Membership was successfully removed."
+      redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was successfully removed."
   end
 
 
