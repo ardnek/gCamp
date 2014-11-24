@@ -8,7 +8,7 @@ class MembershipsController < ApplicationController
   def index
     @membership = Membership.new
     #@memberships = Membership.all
-    @memberships = @project.memberships
+    #@memberships = @project.memberships
   end
 
   #def new
@@ -18,9 +18,10 @@ class MembershipsController < ApplicationController
   def create
       @membership = @project.memberships.new(membership_params)
         if @membership.save
-        redirect_to project_memberships_path, notice: 'Membership was successfully created.'
-        end
+        redirect_to project_memberships_path(@project), notice: 'Membership was successfully created.'
       end
+    end
+    
 
 
   def update
@@ -39,9 +40,6 @@ class MembershipsController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  def set_task
-   @membership = @project.memberships.find(params[:id])
-  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def membership_params
