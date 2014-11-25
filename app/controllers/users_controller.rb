@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     users_param=params.require(:user).permit(:first_name, :last_name, :email)
     @user=User.find(params[:id])
     if @user.update(users_param)
-      flash[:success]="User was successfully updated"
+      flash[:success]="User was successfully updated."
     redirect_to users_path
   end
   end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def destroy
     @user=User.find(params[:id])
     if @user.destroy
-      flash[:success]="User was successfully deleted"
+      flash[:success]="User was successfully deleted."
     redirect_to users_path
   end
 end

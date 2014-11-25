@@ -27,7 +27,7 @@ class MembershipsController < ApplicationController
   def update
     @membership = Membership.find(params[:id])
         @membership.update(membership_params)
-          redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was successfully updated."
+          redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was updated successfully."
     end
 
 
