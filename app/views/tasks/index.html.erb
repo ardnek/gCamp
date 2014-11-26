@@ -1,11 +1,5 @@
 <div class="page-header">
 
-  <ol class="breadcrumb">
-    <li><%= link_to "Projects", projects_path %></li>
-    <li><%= link_to @project.name, project_path(@project) %></li>
-    <li class="active">Tasks</li>
-  </ol>
-
 <div class="pull-right">
   <%= link_to "All", project_tasks_path(type: "all") %> |
   <%= link_to "Incomplete", project_tasks_path(type: "incomplete") %> |
@@ -13,6 +7,12 @@
 </div>
 
 <h3>Tasks for <%= @project.name %></h3>
+
+<ol class="breadcrumb">
+  <li><%= link_to "Projects", projects_path %></li>
+  <li><%= link_to @project.name, project_path(@project) %></li>
+  <li class="active">Tasks</li>
+</ol>
 
 </div>
 

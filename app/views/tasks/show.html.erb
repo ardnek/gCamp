@@ -1,4 +1,4 @@
-<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -16,6 +16,19 @@
   <%= @task.date.try(:strftime, "%m/%d/%Y") %>
 </p>
 
+<h4>Comments</h4>
+
+<hr>
+
+  <% @task.comments.each do |comment| %>
+  <%= comment.comment %><br>
+  <% end %>
+
+  <%= form_for @comment do |f| %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  <% end %>
+
+
 <%= link_to 'Edit', edit_project_task_path(@project, @task) %> |
 <%= link_to 'Back', project_tasks_path %>
-</div>

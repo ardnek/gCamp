@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
 
   belongs_to :project
+  has_many :comments
 
   validate :check_the_date, on: :create
   validates :description, presence: true

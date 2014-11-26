@@ -4,11 +4,13 @@ Rails.application.routes.draw do
     resources :tasks
     resources :memberships
   end
-  
+
   resources :users
 
 
   root "pages#index"
+
+  post 'comments' => 'comments#create'
 
   get 'about' => 'pages#about', as: :about
   get 'terms' => 'pages#terms', as: :terms
