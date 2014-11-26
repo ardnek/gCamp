@@ -1,5 +1,7 @@
 class MembershipsController < ApplicationController
 
+#always need a project so add the before action with project_id found in rake routes:
+
   before_action do
     @project = Project.find(params[:project_id])
   end
@@ -7,8 +9,9 @@ class MembershipsController < ApplicationController
 
   def index
     @membership = Membership.new
+    @memberships = @project.memberships
+
     #@memberships = Membership.all
-    #@memberships = @project.memberships
   end
 
   #def new
@@ -16,9 +19,14 @@ class MembershipsController < ApplicationController
   #end
 
   def create
-      @membership = @project.memberships.new(membership_params)
+    # @project.memberships.new-- create a new member and associate it with projects -- NO!
+      @membership = Membership.new(membership_params)
+      @membership.project = @project
         if @membership.save
         redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was added successfully."
+      else
+        @memberships = @project.memberships
+        render :index
       end
     end
 

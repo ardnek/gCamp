@@ -19,7 +19,8 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    @commment = @task.comments.new
+    @task = @project.tasks.find(params[:id])
+    @comment = Comment.new
   end
 
   # GET /tasks/new

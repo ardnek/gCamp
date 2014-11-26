@@ -20,15 +20,16 @@
 
 <hr>
 
-  <% @task.comments.each do |comment| %>
+<% @task.comments.each do |comment| %>
   <%= comment.comment %><br>
   <% end %>
 
-  <%= form_for @comment do |f| %>
-  <%= f.label :comment %>
-  <%= f.text_area :comment %>
-  <% end %>
-
+  <%= form_for(@comment) do |f| %>
+    <%= f.text_area :comment %>
+    <%= hidden_field_tag :task_id, @task.id %>
+    <%= hidden_field_tag :project_id, @project.id %>
+    <%= f.submit %>
+    <% end %>
 
 <%= link_to 'Edit', edit_project_task_path(@project, @task) %> |
 <%= link_to 'Back', project_tasks_path %>

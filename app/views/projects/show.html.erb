@@ -2,11 +2,6 @@
 
 <div class="page-header">
 
-  <ol class="breadcrumb">
-    <li><%= link_to "Projects", projects_path %></li>
-    <li class="active">Tasks</li>
-  </ol>
-
   <div class="pull-right">
   <%= link_to "edit", edit_project_path(@project), :class => "btn btn-info btn-sm" %>
   <%= link_to "delete", project_path(@project), method: :delete, :class => "btn btn-danger btn-sm" %>
@@ -15,8 +10,13 @@
 
 <h3><%= @project.name %></h3>
 
-
 </div>
+
+<ol class="breadcrumb">
+  <li><%= link_to "Projects", projects_path %></li>
+  <li class="active">Tasks</li>
+</ol>
+  
 
 <%= link_to pluralize(@project.tasks.count, "Task"), project_tasks_path(@project) %><br>
 <%= link_to pluralize(@project.memberships.count, "Member"), project_memberships_path(@project) %>
