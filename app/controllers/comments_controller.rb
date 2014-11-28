@@ -7,8 +7,9 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @task.comments.new(params.require(:comment).permit(:comment, :user_id, :task_id))
-    @comment.user_id = current_user.id
-    @comment.task_id = @task.id
+    #@comment.user_id = current_user.id
+    #@comment.task_id = @task.id
+
 
     if @comment.save
       redirect_to project_task_path(@project, @task), notice: "Comment was successfully created."
