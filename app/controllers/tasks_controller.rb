@@ -16,25 +16,19 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
     end
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
   def show
-    @task = @project.tasks.find(params[:id])
-    @comment = Comment.new
+    @comment = @task.comments.new
   end
 
-  # GET /tasks/new
+
   def new
     @task = @project.tasks.new
   end
 
-  # GET /tasks/1/edit
   def edit
     @edit_task = true
   end
 
-  # POST /tasks
-  # POST /tasks.json
   def create
     @task = @project.tasks.new(task_params)
       if @task.save
@@ -45,9 +39,6 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
     end
 
 
-  # PATCH/PUT /tasks/1
-  # PATCH/PUT /tasks/1.json
-
   def update
       if @task.update(task_params)
         redirect_to project_task_path(@project, @task), notice: 'Task was successfully updated.'
@@ -56,8 +47,6 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
       end
     end
 
-  # DELETE /tasks/1
-  # DELETE /tasks/1.json
   def destroy
     @task.destroy
       redirect_to project_tasks_path, notice: 'Task was successfully destroyed.'
