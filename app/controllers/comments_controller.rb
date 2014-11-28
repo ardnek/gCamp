@@ -1,21 +1,18 @@
 class CommentsController < ApplicationController
 
-  def create
-    @projects = Project.all
-    @tasks = Task.all
-
+  before_action do
     @project = Project.find(params[:project_id])
-    #@task = @project.tasks.find(params[:id])
-    comment_params=params.require(:comment).permit(:user_id, :task_id, :comment)
-    @comment = Comment.new(comment_params)
+    @task = @project.tasks.find(params[:task_id])
+  end
+
+  def create
+    @comment = @task.comments.new(params.require(:comment).permit(:comment, :user_id, :task_id))
+    @comment.user_id = current_user.id
+    @comment.task_id = @task.id
     if @comment.save
-      redirect_to project_task_path(@task)
+      redirect_to project_task_path(@project, @task)
     else
       render :show
+    end
   end
 end
-
-end
-
-
-#@comment = Comment.new

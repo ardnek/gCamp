@@ -7,12 +7,16 @@ Rails.application.routes.draw do
 
   resources :users
 
+  # resources :comments, only: [:create]
   # resources :comments, :only => [:create]
 
   root "pages#index"
 
-  post 'comments' => 'comments#create'
 
+  post 'comments' => 'comments#create'
+  
+  #get 'comments' => 'comments#new'
+  #match '/investors/new', to: 'investors#new',    via: 'get'
   #post '/task/:task_id/create_comment' => 'tasks#create_comment', as: :task_comments
 
   get 'about' => 'pages#about', as: :about
