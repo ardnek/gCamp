@@ -35,7 +35,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   def create
     @task = @project.tasks.new(task_params)
       if @task.save
-        redirect_to project_task_path(@project, @task), notice: 'Task was successfully created.'
+        redirect_to project_tasks_path(@project, @task), notice: 'Task was successfully created.'
       else
         render :new
       end
@@ -44,7 +44,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def update
       if @task.update(task_params)
-        redirect_to project_task_path(@project, @task), notice: 'Task was successfully updated.'
+        redirect_to project_tasks_path(@project, @task), notice: 'Task was successfully updated.'
       else
         render :edit
       end
