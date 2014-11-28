@@ -14,8 +14,9 @@ Rails.application.routes.draw do
 
 
   post 'comments' => 'comments#create'
-  
+
   #get 'comments' => 'comments#new'
+
   #match '/investors/new', to: 'investors#new',    via: 'get'
   #post '/task/:task_id/create_comment' => 'tasks#create_comment', as: :task_comments
 

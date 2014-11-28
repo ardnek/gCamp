@@ -16,7 +16,9 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
     end
   end
 
+
   def show
+    @task = @project.tasks.find(params[:id])
     @comment = @task.comments.new
   end
 
@@ -24,6 +26,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   def new
     @task = @project.tasks.new
   end
+
 
   def edit
     @edit_task = true
