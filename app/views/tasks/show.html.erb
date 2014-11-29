@@ -34,12 +34,14 @@
   <%= comment.comment %><br>
   <% end %>
 
+
   <%= form_for(@comment) do |f| %>
-    <%= f.text_area :comment, class: "form-control" %>
+    <%= f.text_area :comment, class: "col-sm-offset-1 col-sm-9 form-control" %>
     <%= hidden_field_tag :task_id, @task.id %>
     <%= hidden_field_tag :project_id, @project.id %>
-    <%= f.submit "Add Comment" %>
+    <%= f.submit "Add Comment", class: 'btn btn-info btn-sm' %>
     <% end %>
+
 
 <%= link_to 'Edit', edit_project_task_path(@project, @task) %> |
 <%= link_to 'Back', project_tasks_path %>

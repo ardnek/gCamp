@@ -3,7 +3,7 @@
 <div class="pull-right">
   <%= link_to "All", project_tasks_path(type: "all") %> |
   <%= link_to "Incomplete", project_tasks_path(type: "incomplete") %> |
-<%= link_to 'Create Task', new_project_task_path, class: 'btn btn-info btn-sm' %>
+<%= link_to 'New Task', new_project_task_path, class: 'btn btn-info btn-sm' %>
 </div>
 
 <h3>Tasks for <%= @project.name %></h3>
@@ -29,16 +29,15 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td class="col-md-6"><%= task.description %></td>
+        <td class="col-md-6"><%= link_to task.description, project_task_path(@project, task) %></td>
         <td class="col-md-1"><%= task.complete %></td>
         <td class="col-md-1"><%= task.date.try(:strftime, "%m/%d/%Y") %></td>
 
 
       <td class="col-md-3">
        <div class="pull-right">
-          <%= link_to 'Show', project_task_path(@project, task), class: 'btn btn-success btn-xs' %>
-          <%= link_to 'Edit', edit_project_task_path(@project, task), class: 'btn btn-warning btn-xs' %>
-          <%= link_to 'Destroy', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+          <%= link_to 'Edit', edit_project_task_path(@project, task), class: 'btn btn-info btn-xs' %>
+          <%= link_to '', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %>
       </div>
       </td>
 
