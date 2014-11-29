@@ -35,10 +35,10 @@
   <% end %>
 
   <%= form_for(@comment) do |f| %>
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment, class: "form-control" %>
     <%= hidden_field_tag :task_id, @task.id %>
     <%= hidden_field_tag :project_id, @project.id %>
-    <%= f.submit %>
+    <%= f.submit "Add Comment" %>
     <% end %>
 
 <%= link_to 'Edit', edit_project_task_path(@project, @task) %> |
