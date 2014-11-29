@@ -29,3 +29,15 @@
 </p>
 
 <h4>Comments</h4>
+
+<% @task.comments.each do |comment| %>
+  <%= comment.comment %><br>
+  <% end %>
+
+
+  <%= form_for(@comment) do |f| %>
+    <%= f.text_area :comment, class: "col-sm-offset-1 col-sm-9 form-control" %>
+    <%= hidden_field_tag :task_id, @task.id %>
+    <%= hidden_field_tag :project_id, @project.id %>
+    <%= f.submit "Add Comment", class: 'btn btn-info btn-sm' %>
+    <% end %>
