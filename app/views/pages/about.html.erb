@@ -1,8 +1,40 @@
 
+<h3>About</h3>
 
-<center>
-<h1>About</h1>
-<p>Get organized and increase productivity with your team. </p>
-<br><br>
-<%= image_tag "meeting-152506_640.png" %>
-</center
+<div class="col-sm-6">
+<%= image_tag "mainframe.jpg", size: "491x335" %>
+</div>
+
+<div class="col-sm-6">
+
+  <p>We are dedicated to the makers, the creators, the risk-takers. We wake up in the middle of the night
+    and furiously write down ideas about how to make your online life better.</p>
+
+  <p>When we're not hard at work, we're hard at play - we're the loud ones in the bar, and we're always the
+  ones shutting the place down. Human communication and collaboration is what drives us, and it infuses every
+  feature of gCamp. </p>
+
+
+</div>
+
+<div class="col-md-6">
+  <br>
+
+  <p>gCamp is extremely active.  Check out our killer stats!</p>
+
+  <hr>
+
+  <p>
+  <%= pluralize(@projects.count, "Projects") %>,
+  <%= pluralize(@tasks.count, "Task") %>,
+  <%= pluralize(@memberships.count, "Project Member") %>,
+  <%= pluralize(@users.count, "User") %>,
+  <%= pluralize(@comments.count, "Comments") %>
+  </p>
+
+  <hr>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>

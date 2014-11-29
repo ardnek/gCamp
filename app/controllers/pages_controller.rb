@@ -32,5 +32,14 @@ class PagesController < ApplicationController
           question3.answer = "gCamp is a work in progress. That being said, it should be fully functional by December 2014. Functional, but our developers are going to continue to improve the site for the forseeable future. Check in daily for new features and awesome functionality. It's going to blow your mind. Organization is only (well, will only) be a click away. Amazing!"
 
           @questions = [question1, question2, question3]
-  end
+    end
+
+    def about
+      @users = User.all
+      @projects = Project.all
+      @tasks = Task.all
+      @memberships = Membership.all
+      @comments = Comment.all
+    end
+
 end
