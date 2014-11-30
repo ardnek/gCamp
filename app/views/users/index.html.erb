@@ -1,32 +1,27 @@
 <div class="page-header">
     <div class="pull-right">
-      <%= link_to "Create user", new_user_path, :class => "btn btn-info btn-sm" %>
+      <%= link_to "Create user", new_user_path, class: "btn btn-info btn-sm" %>
     </div>
 
     <h3>Users</h3>
-    
+
 </div>
+
 
   <table class="table table-condensed">
     <thead>
       <tr>
-      <th>Name</th>
-      <th>Email</th>
+        <th width="40%">Name</th>
+        <th width="58%">Email</th>
+        <th width="2%"></th>
       </tr>
-
     </thead>
     <tbody>
       <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.full_name, user %></td>
         <td><%= mail_to user.email %></td>
-
-        <td class="col-md-3">
-         <div class="pull-right">
-        <td><%= link_to "Edit", edit_user_path(user) %>
-        </div>
-        </td>
-
+        <td><%= link_to "Edit", edit_user_path(user) %></td>
       </tr>
       <% end %>
     </tbody>
