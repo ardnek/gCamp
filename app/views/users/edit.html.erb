@@ -1,25 +1,26 @@
-
+<div class="page-header">
 <h3>Edit User</h3>
+</div>
 
 <%= form_for(@user, :html => {class: "form-horizontal"}) do |f| %>
 
 <div class="form-group">
 <%= f.label :first_name, class: "col-sm-2 control-label" %>
-<div class="col-sm-3">
+<div class="col-sm-4">
 <%= f.text_field :first_name, class: "form-control" %>
 </div>
 </div>
 
 <div class="form-group">
 <%= f.label :last_name, class: "col-sm-2 control-label" %>
-<div class="col-sm-3">
+<div class="col-sm-4">
 <%= f.text_field :last_name, class: "form-control" %>
 </div>
 </div>
 
 <div class="form-group">
 <%= f.label :email, class: "col-sm-2 control-label" %>
-<div class="col-sm-3">
+<div class="col-sm-4">
 <%= f.text_field :email, class: "form-control" %>
 </div>
 </div>
@@ -27,16 +28,16 @@
 <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
 <%= f.submit "Update user", :class => "btn btn-info btn-sm" %>
+<%= link_to "Cancel", users_path, class: 'btn btn-default btn-sm' %>
 </div>
 </div>
 
 <div class="form-group">
-  <div class="well well-sm col-sm-offset-3 col-sm-1">
+
+  <div class="col-sm-offset-3 col-sm-1 well well-sm text-center">
     <%= link_to "Delete user", user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
   </div>
 </div>
 
-
-<br><br><br>
 
 <% end %>
