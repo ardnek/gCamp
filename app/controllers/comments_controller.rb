@@ -17,6 +17,8 @@ class CommentsController < ApplicationController
   #end
 
   def create
+    #@comment = Comment.new(params.require(:comment).permit(:comment, :user_id, :task_id))
+    #@comment.task = @task
     @comment = @task.comments.new(params.require(:comment).permit(:comment, :user_id, :task_id))
     @comment.user_id = current_user.id
     #@comment.task_id = @task.id

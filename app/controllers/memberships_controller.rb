@@ -19,7 +19,7 @@ class MembershipsController < ApplicationController
   #end
 
   def create
-    # @project.memberships.new-- create a new member and associate it with projects -- NO!
+      #@membership = @project.memberships.new-- create a new member and associate it with projects -- NO!
       @membership = Membership.new(membership_params)
       @membership.project = @project
         if @membership.save
