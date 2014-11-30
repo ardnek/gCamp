@@ -23,6 +23,7 @@
       <th>Description</th>
       <th>Complete</th>
       <th>Due Date</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -33,7 +34,7 @@
           <%= link_to task.description, project_task_path(@project, task) %>
           <span class="badge"><%= task.comments.count %></span>
         </td>
-        <td class="col-md-1"><%= task.complete %></td>
+        <td class="col-md-2"><%= task.complete %></td>
         <td class="col-md-1"><%= task.date.try(:strftime, "%m/%d/%Y") %></td>
 
 
