@@ -1,10 +1,13 @@
 
 <div class="page-header">
 
-<%= link_to "Create Project", new_project_path, :class => "btn btn-info btn-sm pull-right" %>
+  <div class="pull-right">
+      <%= link_to "Create Project", new_project_path, :class => "btn btn-info btn-sm" %>
+  </div>
 
 <h3>Projects</h3>
 
+</div>
 
 
 <table class="table table-condensed">
@@ -27,4 +30,3 @@
     <% end %>
   </tbody>
 </table>
-</div>
