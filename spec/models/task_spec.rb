@@ -10,21 +10,21 @@ describe Task do
       expect(task.errors[:date].present?).to eq(true)
     end
 
-    it "success for future dates" do
+    it "verifies success for future dates" do
       task = Task.new
       task.date = "12/12/2017"
       task.valid?
       expect(task.errors[:date].present?).to eq(false)
     end
 
-    it "success for current date" do
+    it "verifies success for current date" do
       task = Task.new
       task.date = "11/12/2014"
       task.valid?
       expect(task.errors[:date].present?).to eq(false)
     end
 
-    it "success editing date for new and existing task" do
+    it "verifies success editing date for new and existing tasks" do
       task = Task.create!(description: "carve pumpkins", date: "11/12/2014")
       task.date = "10/12/2014"
       task.valid?
@@ -36,5 +36,5 @@ describe Task do
 
     #it "success editing date for an existing past task" do
     #end
-    
+
 end

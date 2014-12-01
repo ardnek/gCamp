@@ -14,8 +14,7 @@
 
 <% if @membership.errors.present? %>
 <div class="form-group">
-  <div class="col-sm-5">
-    <div class="alert alert-danger">
+  <div class="col-sm-4 alert alert-danger">
       <strong><%= pluralize(@membership.errors.count, "error") %> prohibited this form from being saved:</strong>
       <ul>
         <% @membership.errors.full_messages.each do |message| %>
@@ -23,9 +22,8 @@
         <% end %>
       </ul>
     </div>
-  </div>
-</div><br><br><br><br><br>
-
+</div>
+<br><br><br><br><br>
 <% end %>
 
 
