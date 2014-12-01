@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to project_task_path(@project, @task), notice: "Comment was successfully created."
     else
-      render 'tasks/show'
+      redirect_to project_task_path(@project, @task)
     end
   end
 end
