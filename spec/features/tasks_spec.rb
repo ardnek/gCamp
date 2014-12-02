@@ -34,7 +34,6 @@ feature "Tasks" do
 
     first('.glyphicon-remove').click
     expect(page).to have_content("Task was successfully destroyed.")
-
   end
 
   scenario "User must enter description of a task" do
@@ -47,5 +46,5 @@ feature "Tasks" do
     click_on "Create Task"
     expect(page).to have_content("Description can't be blank")
   end
-  
+
 end

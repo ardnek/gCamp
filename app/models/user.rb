@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :projects, through: :memberships
-  has_many :comments
+  has_many :comments, dependent: :nullify
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :first_name, presence: true

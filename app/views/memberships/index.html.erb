@@ -51,7 +51,7 @@
       <%= form_for [@project, membership] do |f| %>
 
       <tr>
-        <td class="col-md-1"><%= membership.user.full_name %></td>
+        <td class="col-md-2"><%= membership.user.full_name %></td>
 
         <td class="col-md-1"><%= f.select :role, ["Member", "Owner"], {include_blank: false}, {class: "form-control"} %></td>
 
