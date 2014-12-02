@@ -11,15 +11,18 @@ feature "Projects" do
 
     click_on "Create project"
     expect(page).to have_content("Project was successfully created")
+    expect(page).to have_content("Screenprint tshirts")
 
     click_on "Screenprint tshirts"
     click_on "edit"
-    fill_in "Name", with: "Screenprinting"
+    fill_in "Name", with: "Screenprinting tshirts"
     click_on "Edit Project"
-    expect(page).to have_content("Screenprinting")
+    expect(page).to have_content("Screenprinting tshirts")
+    expect(page).to have_no_content("Screenprint tshirts")
 
     click_on "delete"
     expect(page).to have_content("Project was successfully deleted")
+    expect(page).to have_no_content("Screenprinting")
 
   end
 

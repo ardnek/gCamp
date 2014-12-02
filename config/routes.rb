@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
-
   post 'comments' => 'comments#create'
 
   #get 'comments' => 'comments#new'
