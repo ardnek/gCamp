@@ -9,10 +9,4 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  #before_action :determine_layout
-  #private
-  #def determine_layout
-  #current_user ? "private" : "public"
-  #end
-
 end
