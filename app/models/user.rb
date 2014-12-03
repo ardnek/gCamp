@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   has_many :projects, through: :memberships
   has_many :comments, dependent: :nullify
 
-  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  #validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates_uniqueness_of :email, presence: true, :case_sensitive => false
   validates :first_name, presence: true
   validates :last_name, presence: true
   has_secure_password
