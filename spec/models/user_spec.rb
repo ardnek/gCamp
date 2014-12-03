@@ -26,14 +26,16 @@ describe User do
     User.create!(first_name: "Bill", last_name: "Murray", email: "bill@murray.com", password: "bill")
     user = User.new(email: "bill@murray.com")
     user.valid?
-    expect(user.errors["email"].present?).to eq(true)
+    expect(user.errors[:email].present?).to eq(true)
   end
 
   it "fails user regardless of email case sensitivity" do
     User.create!(first_name: "Bill", last_name: "Murray", email: "bill@murray.com", password: "bill")
     user = User.new(email: "BILL@MURRAY.com")
-    user.valid?
-    expect(user.errors["email"].present?).to eq(true)
+    #user.valid?
+    expect(user.valid?).to be(false)
+    #expect(user.errors[:email].present?).to eq(true)
+
   end
 
 end
