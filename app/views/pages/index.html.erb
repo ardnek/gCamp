@@ -1,4 +1,4 @@
-  <div class="container">
+
 
       <div class="jumbotron">
           <div class="container">
@@ -11,6 +11,7 @@
 
   <div class="row">
       <div class="col-md-4">
+
         <div class="thumbnail">
           <%= image_tag "computerGuy.jpg", height: '500', width: '333' %>
         </div>
@@ -28,11 +29,13 @@
 
 
        <div class="col-md-4">
+
           <div class="thumbnail">
             <%= image_tag "webTechnology.jpg", height: '500', width: '333' %>
           </div>
 
           <div class="panel panel-default">
+
               <div class="panel-heading">
                 <h3 class="panel-title">Documents</h3>
               </div>
@@ -66,10 +69,12 @@
           </div>
        </div>
     </div>
-  </div>
 
-
+    <div class="row">
+    <div class="col-md-12">
     <% @quotes.each do |quote| %>
         <p><%= quote.text %></p>
         <p style="color:gray"><em><%= quote.author %></em></p>
     <% end %>
+    </div>
+    </div>
