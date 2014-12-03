@@ -1,53 +1,51 @@
-
 require 'rails_helper'
 
 describe Task do
-  include ActiveSupport::Testing::TimeHelpers
 
-    it "fails past task dates" do
-      task = Task.new
-
-      task.date = "11/10/2014"
-      task.valid?
-      expect(task.errors[:date].present?).to eq(true)
-    end
-
-
-    describe SomeObject do
-      skip
-      it 'works with the new hotness' do
-        the_thing = SomeObject.new
-        travel_to(1.day.ago) do
-          expect(the_thing.works_with_new_hotness?).to eq true
-        end
-
-
-
-    it "verifies success for future dates" do
-      task = Task.new
-      task.date = "12/12/2017"
-      task.valid?
-      expect(task.errors[:date].present?).to eq(false)
-    end
-
-    it "verifies success for current date" do
-      task = Task.new
-      task.date = "11/12/2014"
-      task.valid?
-      expect(task.errors[:date].present?).to eq(false)
-    end
-
-    it "verifies success editing date for new and existing tasks" do
-      task = Task.create!(description: "carve pumpkins", date: "11/12/2014")
-      task.date = "10/12/2014"
-      task.valid?
-      expect(task.errors[:date].present?).to eq(false)
-      task.date = "12/11/2014"
-      task.valid?
-      expect(task.errors[:date].present?).to eq(false)
-    end
-
-    #it "success editing date for an existing past task" do
-    #end
+  it "verifies entry of all fields" do
+    task = Task.new
+    expect(task.valid?).to be(false)
+    task.description = "Carve pumpkins"
+    expect(task.valid?).to be(true)
+    task.date = '12/12/2090'
+    expect(task.valid?).to be(true)
   end
+
+  it "verifies can't have old date when creating" do
+    task = Task.new
+    task.description = "Make pie"
+    task.date = Date.today-2
+    expect(task.valid?).to be(false)
+    expect(task.errors[:date].present?).to eq(true)
+  end
+
+  it "verifies can have future date when creating" do
+    task = Task.new
+    task.description = "Buy yarn"
+    task.date = Date.today+2
+    expect(task.valid?).to be(true)
+    expect(task.errors[:date].present?).to eq(false)
+  end
+
+  it "verifies can have old date when updating" do
+    task = Task.create!(description: "Knit sweater")
+    task.date = Date.today-2
+    expect(task.valid?).to be(true)
+    expect(task.errors[:date].present?).to eq(false)
+  end
+
+  it "verifies can have future date when updating" do
+    task = Task.create!(description: "Knit sweater")
+    task.date = Date.today+2
+    expect(task.valid?).to be(true)
+    expect(task.errors[:date].present?).to eq(false)
+  end
+
+  it "verifies can have today's date when updating" do
+    task = Task.create!(description: "Knit sweater")
+    task.date = Date.today
+    expect(task.valid?).to be(true)
+    expect(task.errors[:date].present?).to eq(false)
+  end
+
 end
