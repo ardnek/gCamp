@@ -46,7 +46,6 @@
 # end
 
 
-
 User.delete_all
 Project.delete_all
 Task.delete_all
@@ -58,7 +57,7 @@ first_name: 'Admin',
 last_name: 'User',
 email: 'admin@example.com',
 password: 'password',
-admin: true
+#admin: true
 )
 
 owner = User.create!(
