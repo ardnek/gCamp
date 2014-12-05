@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @new_user = true
   end
 
   def create
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @edit_user = true
   end
 
   def update

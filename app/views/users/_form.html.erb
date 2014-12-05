@@ -1,5 +1,8 @@
-<%= form_for(@user, :html => {class: "form-horizontal"}) do |f| %>
+<div class="page-header">
+<h3><%= title %></h3>
+</div>
 
+<%= form_for(@user, :html => {class: "form-horizontal"}) do |f| %>
 
 <% if @user.errors.any? %>
 <div class="form-group">
@@ -14,6 +17,7 @@
     </div>
   </div>
 </div>
+
 <% end %>
 
 
@@ -23,6 +27,7 @@
     <%= f.text_field :first_name, class: "form-control" %>
   </div>
 </div>
+
 
 <div class="form-group">
   <%= f.label :last_name, class: "col-sm-2 control-label" %>
@@ -38,6 +43,8 @@
   </div>
 </div>
 
+<% if @edit_user == true %>
+
 <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
     <%= f.submit "Update user", :class => "btn btn-info btn-sm" %>
@@ -45,4 +52,35 @@
   </div>
 </div>
 
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-4 well well-sm text-center">
+    <%= link_to "Delete user", user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+  </div>
+</div>
+
+<% end %>
+
+<% if @new_user == true %>
+
+<div class="form-group">
+  <%= f.label :password, class: "col-sm-2 control-label" %>
+  <div class="col-sm-4">
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
+  <div class="col-sm-4">
+    <%=  f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit "Create user", class: "btn btn-info btn-sm" %>
+    <%= link_to "Cancel", users_path, class: 'btn btn-default btn-sm' %>
+  </div>
+</div>
+<% end %>
 <% end %>
