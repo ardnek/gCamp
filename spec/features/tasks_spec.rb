@@ -34,6 +34,8 @@ feature "Tasks" do
 
     first('.glyphicon-remove').click
     expect(page).to have_content("Task was successfully destroyed.")
+    # within('table.table tr', text: "Some name") do
+    # find(".glyphicon").click
   end
 
   scenario "User must enter description of a task" do
