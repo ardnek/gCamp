@@ -6,22 +6,20 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @new_user = true
   end
 
   def create
     users_param=params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     @user=User.new(users_param)
     if @user.save
-    redirect_to users_path, notice: "User was successfully created."
-  else
+      redirect_to users_path, notice: "User was successfully created."
+    else
       render :new
-  end
+    end
   end
 
   def edit
     @user = User.find(params[:id])
-    @edit_user = true
   end
 
   def update
@@ -41,9 +39,9 @@ class UsersController < ApplicationController
   def destroy
     @user=User.find(params[:id])
     if @user.destroy
-    redirect_to users_path, notice: "User was successfully deleted."
+      redirect_to users_path, notice: "User was successfully deleted."
+    end
   end
-end
 
 
 end
