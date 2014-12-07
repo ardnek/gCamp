@@ -2,15 +2,6 @@
   <h3><%= title %></h3>
 </div>
 
-
-
-<%= form_for(@project) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-
-
-
 <%= form_for(@project, html: {class: "form-horizontal"}) do |f| %>
 
 <% if @project.errors.any? %>
@@ -26,10 +17,7 @@
     </div>
   </div>
 </div>
-
 <% end %>
-
-
 
 <div class="form-group">
   <%= f.label :name, class: "col-sm-1" %>
@@ -40,7 +28,7 @@
 
 <div class="form-group">
   <div class="col-sm-offset-1 col-sm-10">
-    <%= f.submit "Create project", class: "btn btn-info btn-sm" %>
+    <%= f.submit, class: "btn btn-info btn-sm" %>
     <%= link_to "Cancel", projects_path, class: 'btn btn-default btn-sm' %>
   </div>
 </div>

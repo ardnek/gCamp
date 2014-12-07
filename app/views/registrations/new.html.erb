@@ -1,60 +1,60 @@
 <div class="container">
-<div class="well col-md-4 col-md-offset-4">
+  <div class="well col-md-4 col-md-offset-4">
 
-<h3>Sign Up for gCamp!</h3>
+    <h3>Sign Up for gCamp!</h3>
 
-<%= form_for @user, url: signup_path do |f| %>
+    <%= form_for @user, url: signup_path do |f| %>
 
-  <% if @user.errors.present? %>
+    <% if @user.errors.present? %>
     <ul>
       <% @user.errors.full_messages.each do |message| %>
-          <li class="text-danger"><%= message %></li>
+      <li class="text-danger"><%= message %></li>
       <% end %>
     </ul>
-  <% end %>
+    <% end %>
 
-  <div>
-    <%= f.label :first_name %>
-  </div>
-  <div class="form-group">
-    <%= f.text_field :first_name, class: "form-control" %>
-  </div>
+    <div>
+      <%= f.label :first_name %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= f.label :last_name %>
-  </div>
-  <div class="form-group">
-    <%= f.text_field :last_name, class: "form-control" %>
-  </div>
+    <div>
+      <%= f.label :last_name %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
 
 
 
-  <div>
-    <%= f.label :email %>
-  </div>
-  <div class="form-group">
-    <%= f.email_field :email, class: "form-control" %>
-  </div>
+    <div>
+      <%= f.label :email %>
+    </div>
+    <div class="form-group">
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= f.label :password %>
-  </div>
+    <div>
+      <%= f.label :password %>
+    </div>
 
-  <div class="form-group">
-    <%= f.password_field :password, class: "form-control" %>
-  </div>
+    <div class="form-group">
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= f.label :password_confirmation %>
-  </div>
-  <div class="form-group">
-    <%= f.password_field :password_confirmation, class: "form-control" %>
-  </div>
+    <div>
+      <%= f.label :password_confirmation %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= f.submit "Sign up", :class => "btn btn-primary" %>
-  </div>
+    <div>
+      <%= f.submit "Sign up", :class => "btn btn-primary" %>
+    </div>
 
-<% end %>
-</div>
+    <% end %>
+  </div>
 </div>
