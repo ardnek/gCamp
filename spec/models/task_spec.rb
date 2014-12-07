@@ -11,7 +11,7 @@ describe Task do
     expect(task.valid?).to be(true)
   end
 
-  it "verifies can't have old date when creating" do
+  it "can't create a task with an old date" do
     task = Task.new
     task.description = "Make pie"
     task.date = Date.today-2
@@ -19,33 +19,54 @@ describe Task do
     expect(task.errors[:date].present?).to eq(true)
   end
 
-  it "verifies can have future date when creating" do
-    task = Task.new
-    task.description = "Buy yarn"
+  it "creates a task with future date" do
+    task = Task.new(
+    description: "Buy yarn",
+    date: Time.now + 7.days
+    )
+    task.valid?
+    expect(task.errors[:date].present?).to eq (false)
+    # task = Task.new
+    # task.description = "Buy yarn"
+    # task.date = Date.today+2
+    # expect(task.valid?).to be(true)
+    # expect(task.errors[:date].present?).to eq(false)
+  end
+
+  it "edits a task with a future date" do
+    task = Task.create!(description: "Knit sweater")
     task.date = Date.today+2
     expect(task.valid?).to be(true)
     expect(task.errors[:date].present?).to eq(false)
   end
 
-  it "verifies can have old date when updating" do
+  it "edits a task with today's date" do
+    task = Task.create!(description: "Knit sweater")
+    task.date = Date.today
+    expect(task.valid?).to be(true)
+    expect(task.errors[:date].present?).to eq(false)
+  end
+
+  it "edits a task with a past date" do
     task = Task.create!(description: "Knit sweater")
     task.date = Date.today-2
     expect(task.valid?).to be(true)
     expect(task.errors[:date].present?).to eq(false)
   end
 
-  it "verifies can have future date when updating" do
-    task = Task.create!(description: "Knit sweater")
-    task.date = Date.today+2
-    expect(task.valid?).to be(true)
-    expect(task.errors[:date].present?).to eq(false)
-  end
-
-  it "verifies can have today's date when updating" do
-    task = Task.create!(description: "Knit sweater")
-    task.date = Date.today
-    expect(task.valid?).to be(true)
-    expect(task.errors[:date].present?).to eq(false)
-  end
+  # it "Edits a task with a past date" do
+  #   task = nil
+  #
+  #   travel_to 3.weeks.ago do
+  #     task = Task.create!(
+  #     description: "Test the app",
+  #     due_date: Time.now
+  #     )
+  #   end
+  #
+  #   task.description = "Test the app again"
+  #   task.valid?
+  #   expect(task.errors[:due_date].present?).to eq(false)
+  # end
 
 end
