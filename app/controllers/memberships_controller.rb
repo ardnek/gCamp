@@ -1,6 +1,6 @@
 class MembershipsController < ApplicationController
 
-#always need a project so add the before action with project_id found in rake routes:
+  #always need a project so add the before action with project_id found in rake routes:
 
   before_action do
     @project = Project.find(params[:project_id])
@@ -15,34 +15,34 @@ class MembershipsController < ApplicationController
   end
 
   #def new
-    #@membership = @project.membership.new
+  #@membership = @project.membership.new
   #end
 
   def create
-      #@membership = @project.memberships.new-- create a new member and associate it with projects -- NO!
-      @membership = Membership.new(membership_params)
-      @membership.project = @project
-        if @membership.save
-        redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was added successfully."
-      else
-        @memberships = @project.memberships
-        render :index
-      end
+    #@membership = @project.memberships.new-- create a new member and associate it with projects -- NO!
+    @membership = Membership.new(membership_params)
+    @membership.project = @project
+    if @membership.save
+      redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was added successfully."
+    else
+      @memberships = @project.memberships
+      render :index
     end
+  end
 
 
 
   def update
     @membership = Membership.find(params[:id])
-        @membership.update(membership_params)
-          redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was updated successfully."
-    end
+    @membership.update(membership_params)
+    redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was updated successfully."
+  end
 
 
   def destroy
     @membership = Membership.find(params[:id])
     @membership.destroy
-      redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was removed successfully."
+    redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was removed successfully."
   end
 
 

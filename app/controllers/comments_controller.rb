@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   end
 
   #def new
-    #@comment = current_user.comments.build
+  #@comment = current_user.comments.build
   #end
 
   #def index
