@@ -30,6 +30,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     if @project.update(project_params)
       redirect_to project_path(@project), notice: "Project was successfully updated."
+    else
+      render :edit
     end
   end
 
