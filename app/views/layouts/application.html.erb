@@ -79,39 +79,42 @@
 
     <%= yield %>
     <br>
-
-
-
-    <div class="footer">
-
-      <%= link_to "About", about_path %>  |
-      <%= link_to "Terms", terms_path %> |
-      <%= link_to "FAQ", faq_path %> |
-      <%= link_to "Users", users_path %> |
-      <%= link_to "Projects", projects_path %>
-
-
-
-      <div class="pull-right">
-        <%= link_to "www.linkedin.com/pub/kendra-dodds/70/b47/413/" do %>
-        <%= image_tag("linkedinLogo.png", width: "20em") %>
-        <% end %>
-
-        <%= link_to "https://github.com/ardnek" do %>
-        <%= image_tag("githubLogo.png", width: "20em") %>
-        <% end %>
-
-        <%= link_to "https://twitter.com/kendradodds" do %>
-        <%= image_tag("twitterLogo.png", width: "20em") %>
-        <% end %>
-
-        <%= link_to "https://students.gschool.it/students/104" do %>
-        <%= image_tag("gschool.png", width: "20em") %>
-        <% end %>
-      </div>
-
-    </div>
   </div>
+
+  <footer>
+    <div class="container">
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <%= link_to "About", about_path %>  |
+          <%= link_to "Terms", terms_path %> |
+          <%= link_to "FAQ", faq_path %> |
+          <%= link_to "Users", users_path %> |
+          <%= link_to "Projects", projects_path %>
+        </div>
+
+        <div class="col-md-6">
+          <div class="pull-right">
+            <%= link_to "www.linkedin.com/pub/kendra-dodds/70/b47/413/" do %>
+            <%= image_tag("linkedinLogo.png", width: "20em") %>
+            <% end %>
+
+            <%= link_to "https://github.com/ardnek" do %>
+            <%= image_tag("githubLogo.png", width: "20em") %>
+            <% end %>
+
+            <%= link_to "https://twitter.com/kendradodds" do %>
+            <%= image_tag("twitterLogo.png", width: "20em") %>
+            <% end %>
+
+            <%= link_to "https://students.gschool.it/students/104" do %>
+            <%= image_tag("gschool.png", width: "20em") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
   <!-- /container -->
 
   <br>
