@@ -11,20 +11,29 @@
 
 </div>
 
-
-<% if @membership.errors.present? %>
-<div class="form-group">
-  <div class="col-sm-4 alert alert-danger">
-    <strong><%= pluralize(@membership.errors.count, "error") %> prohibited this form from being saved:</strong>
-    <ul>
-      <% @membership.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
+<div class="row">
+  <div class="col-sm-4">
+    <%= render "shared/error", instance: @membership %>
   </div>
 </div>
-<br><br><br><br><br>
+
+
+
+<!-- <% if @membership.errors.present? %>
+<div class="form-group">
+<div class="col-sm-4 alert alert-danger">
+<strong><%= pluralize(@membership.errors.count, "error") %> prohibited this form from being saved:</strong>
+<ul>
+<% @membership.errors.full_messages.each do |message| %>
+<li><%= message %></li>
 <% end %>
+</ul>
+</div>
+</div>
+<br><br><br><br><br>
+<% end %> -->
+
+
 
 
 <%= form_for [@project, @membership] do |f| %>

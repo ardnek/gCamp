@@ -6,7 +6,13 @@
 
 <%= form_for [@project, @task], html: {class: "form-horizontal"} do |f| %>
 
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-4">
+    <%= render "shared/error", instance: @task %>
+  </div>
+</div>
 
+<!--
 <% if @task.errors.any? %>
 <div class="form-group">
   <div class="col-sm-offset-1 col-sm-4">
@@ -21,7 +27,7 @@
   </div>
 </div>
 
-<% end %>
+<% end %> -->
 
 
 <div class="form-group">

@@ -4,7 +4,14 @@
 
 <%= form_for(@user, :html => {class: "form-horizontal"}) do |f| %>
 
-<% if @user.errors.any? %>
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-4">
+    <%= render "shared/error", instance: @task %>
+  </div>
+</div>
+
+
+<!-- <% if @user.errors.any? %>
 <div class="form-group">
   <div class="col-sm-offset-2 col-sm-4">
     <div class="alert alert-danger">
@@ -18,7 +25,7 @@
   </div>
 </div>
 
-<% end %>
+<% end %> -->
 
 
 <div class="form-group">
