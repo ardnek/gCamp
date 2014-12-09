@@ -1,4 +1,6 @@
-class PagesController < ApplicationController
+class PagesController < PublicController
+  # views will look for layouts/pages then layouts/public then layouts/application
+  
   def index
 
     quote1 = Quote.new
