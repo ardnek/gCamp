@@ -72,7 +72,7 @@
     <% end %>
 
     <% if flash[:notice] %>
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-info" role="alert">
       <%= flash[:notice] %>
     </div>
     <% end %>
@@ -85,7 +85,7 @@
     <div class="container">
       <hr>
       <div class="row">
-        <div class="col-sm-offset-5 col-md-6">
+        <div class="col-sm-offset-4 col-md-6">
           <%= link_to "About", about_path %>  |
           <%= link_to "Terms", terms_path %> |
           <%= link_to "FAQ", faq_path %> |
