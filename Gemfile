@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem "faraday"
+
+gem "pg"
+
 group :development, :test do
   gem 'rspec-rails'
   gem "capybara"
@@ -7,8 +11,6 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
   gem 'faker'
 end
-
-gem "pg"
 
 group :production do
   gem "rails_12factor"

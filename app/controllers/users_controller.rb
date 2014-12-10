@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    users_param=params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    users_param=params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :pivotal_tracker_token)
     @user=User.new(users_param)
     if @user.save
       redirect_to users_path, notice: "User was successfully created."

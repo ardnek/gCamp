@@ -22,3 +22,8 @@
   <strong>Email:</strong>
   <%= mail_to @user.email %>
 </p>
+
+<p>
+  <strong>Pivotal Tracker Token:</strong>
+  <%= "#{@user.pivotal_tracker_token[0..3]}************************" %>
+</p>
