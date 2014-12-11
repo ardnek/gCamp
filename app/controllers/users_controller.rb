@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    users_param=params.require(:user).permit(:first_name, :last_name, :email)
+    users_param=params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :pivotal_tracker_token)
     @user=User.find(params[:id])
     if @user.update(users_param)
       redirect_to users_path, notice: "User was successfully updated."
