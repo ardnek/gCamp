@@ -25,5 +25,7 @@
 
 <p>
   <strong>Pivotal Tracker Token:</strong>
+  <% if @user.pivotal_tracker_token %>
   <%= "#{@user.pivotal_tracker_token[0..3]}************************" %>
+  <% end %>
 </p>
