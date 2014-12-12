@@ -16,7 +16,7 @@
   <tbody>
     <% @tracker_stories.each do |story| %>
     <tr>
-      <td><%= link_to story[:name] %></td>
+      <td><%= link_to story[:name], story[:url] %></td>
       <td><%= story[:estimate] %></td>
       <td>
         <% @labels = [] %>
