@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h3>Stories for </h3>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th width="40%">Story</th>
+      <th width="20%">Estimate</th>
+      <th width="20%">Labels</th>
+      <th width="20%">Current State</th>
+    </tr>
+
+  </thead>
+
+  <tbody>
+    <% @tracker_stories.each do |story| %>
+    <tr>
+      <td><%= link_to story[:name] %></td>
+      <td><%= story[:estimate] %></td>
+      <td>
+        <% @labels = [] %>
+        <% story[:labels].each do |label| %>
+        <% "#{@labels << label[:name]}" %>
+        <% end %>
+        <%= @labels.join(', ') %>
+      </td>
+      <td><%= story[:current_state] %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

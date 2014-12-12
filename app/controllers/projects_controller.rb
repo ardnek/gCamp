@@ -1,7 +1,12 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    #instantiate an instance of the TrackerAPI class. tracker_api variable is instance of the class
+    #tracker_api is not an instance variable since it doesn't need to be displayed in the view
     tracker_api = TrackerAPI.new
+    #calling the method and passing it a token
+    #pass things down to views with an instance variable
+    #this is client code
     @tracker_projects = tracker_api.projects(current_user.pivotal_tracker_token)
   end
 

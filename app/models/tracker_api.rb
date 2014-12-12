@@ -1,19 +1,44 @@
 class TrackerAPI
 
+  #assigning state to instance of this class
+
   def initialize
     @conn = Faraday.new(:url => 'https://www.pivotaltracker.com')
   end
 
+  #behavior
   def projects(token)
+    return [] if token.nil?
     response = @conn.get do |req|
       req.url "/services/v5/projects"
       req.headers['Content-Type'] = 'application/json'
       req.headers['X-TrackerToken'] = token
   end
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    parsed.map do |json|
+      PivotalProject.new(json[:id], json[:name])
+    #JSON.parse(response.body, symbolize_names: true)
+    end
+  end
+
+  #behavior
+  def stories(token, project_id)
+    return [] if token.nil?
+    response = @conn.get do |req|
+      req.url "/services/v5/projects/#{project_id}/stories"
+      req.headers['Content-Type'] = 'application/json'
+      req.headers['X-TrackerToken'] = token
+    end
     JSON.parse(response.body, symbolize_names: true)
   end
+
 end
 
+
+#def project(token)
+#return [ ] if token.nil?
+#end
 
 # constructor to construct instances of this class. Allows us to new-up objects
 # No behavior in initialize-- you only have state. The state is used throughout the behaviors. Initilize
@@ -21,7 +46,7 @@ end
 # Never use global variables-- @@. Only use instance variable @.
 
 
-# in irb paste code and these two things:
+# in rails c (or irb) paste code and these two things:
 #tracker_api = TrackerAPI.new
 #tracker_api.projects(put TrackerAPI # here)
 
