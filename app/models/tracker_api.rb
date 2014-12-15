@@ -32,7 +32,6 @@ class TrackerAPI
     end
     JSON.parse(response.body, symbolize_names: true)
   end
-
 end
 
 
@@ -54,3 +53,28 @@ end
 # NOTE:
 # objects have two fundamental properties: state and behavior
 # instance variable
+
+# REFACTORING:
+# def connection
+#   Faraday.new(:url => 'https://www.pivotaltracker.com' )
+# end
+#
+# def post(url, token, data)
+# response = connection.post do (req)
+# req.url url
+# req.headers['Content-Type'] = 'application/json'
+# req.headers['X-TrackerToken'] = token
+# req.body = data.to_json
+# end
+# end
+#
+#
+# def get(url, token)
+#   connection.get do |req|
+#     req.url url
+#     req.headers['Content-Type'] = 'application/json'
+#     req.headers['X-TrackerToken'] = token
+# end
+# end
+# end
+#
