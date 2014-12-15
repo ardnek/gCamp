@@ -26,14 +26,13 @@ class TrackerAPI
   def stories(token, project_id)
     return [] if token.nil?
     response = @conn.get do |req|
-      req.url "/services/v5/projects/#{project_id}/stories"
+      req.url "/services/v5/projects/#{project_id}/stories?limit=500&offset=0"
       req.headers['Content-Type'] = 'application/json'
       req.headers['X-TrackerToken'] = token
     end
     JSON.parse(response.body, symbolize_names: true)
   end
 end
-
 
 #def project(token)
 #return [ ] if token.nil?
