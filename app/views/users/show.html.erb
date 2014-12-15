@@ -3,9 +3,7 @@
     <%= link_to "Edit", edit_user_path, :class => "btn btn-info btn-sm" %>
     <%= link_to "Cancel", users_path, class: 'btn btn-default btn-sm' %>
   </div>
-
   <h3><%= @user.full_name %></h3>
-
 </div>
 
 <p>
@@ -26,6 +24,6 @@
 <p>
   <strong>Pivotal Tracker Token:</strong>
   <% if @user.pivotal_tracker_token %>
-  <%= "#{@user.pivotal_tracker_token[0..3]}************************" %>
+  <%= "#{@user.pivotal_tracker_token[0..3]}*****************************" %>
   <% end %>
 </p>

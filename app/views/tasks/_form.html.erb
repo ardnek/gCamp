@@ -1,5 +1,3 @@
-
-
 <div class="page-header">
   <h3><%= title %></h3>
 </div>
@@ -11,24 +9,6 @@
     <%= render "shared/error", instance: @task %>
   </div>
 </div>
-
-<!--
-<% if @task.errors.any? %>
-<div class="form-group">
-  <div class="col-sm-offset-1 col-sm-4">
-    <div class="alert alert-danger">
-      <strong><%= pluralize(@task.errors.count, "error") %> prohibited this form from being saved:</strong>
-      <ul>
-        <% @task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<% end %> -->
-
 
 <div class="form-group">
   <%= f.label :description, class: "col-sm-1 control-label" %>
@@ -44,7 +24,6 @@
   </div>
 </div>
 
-
 <% if @edit_task == true %>
 
 <div class="form-group">
@@ -53,11 +32,7 @@
     <%= f.label :complete %>
   </div>
 </div>
-
 <% end %>
-
-
-
 
 <div class="form-group">
   <div class="col-sm-offset-1 col-sm-10">
@@ -65,5 +40,4 @@
     <%= link_to "Cancel", project_tasks_path, class: 'btn btn-default btn-sm' %>
   </div>
 </div>
-
 <% end %>
