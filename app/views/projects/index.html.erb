@@ -1,9 +1,16 @@
-<div class="page-header">
+
+<!-- This is an application helper with capture block:  -->
+<%= page_header "My Projects" do %>
+<%= link_to "Create Project", new_project_path, :class => "btn btn-info btn-sm" %>
+<% end %>
+
+
+<!-- <div class="page-header">
   <div class="pull-right">
       <%= link_to "Create Project", new_project_path, :class => "btn btn-info btn-sm" %>
   </div>
 <h3>My Projects</h3>
-</div>
+</div> -->
 
 <table class="table table-condensed">
   <thead>
