@@ -50,4 +50,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  private
+
+  # def project_params
+  #   params.required(:project).permit(:name)
+  # end
+
 end

@@ -24,86 +24,108 @@
 
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+      <!-- <div class="navbar-header"> -->
+      <%= link_to "gCamp", projects_path, class:"navbar-brand" %>
 
-        <!-- <a class="navbar-brand" href="#">gCamp</a> -->
-        <%= link_to "gCamp", root_path, class:"navbar-brand" %>
-      </div>
+      <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button> -->
+    <!-- <a class="navbar-brand" href="#">gCamp</a> -->
+    <!-- </div> -->
 
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-        <li><%= link_to current_user.full_name, user_path(current_user) %></li>
-        <li><%= link_to "Sign Out", signout_path %></li>
-        <% else %>
-        <li><%= link_to "Sign Up", signup_path %></li>
-        <li><%= link_to "Sign In", signin_path %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="/projects" class="dropdown-toggle" data-toggle="dropdown">
+          My Projects
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+
+
+          <% @projects.each do |project| %>
+            <li><%= link_to project.name, project_path(project) %></li>
+          <% end %>
+
+          <li class="divider"></li>
+          <li><%= link_to "New Project", new_project_path %></li>
+        </ul>
+      </li>
+      <li><%= link_to "Users", users_path %></li>
+    </ul>
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+      <li><%= link_to current_user.full_name, user_path(current_user) %></li>
+      <li><%= link_to "Sign Out", signout_path %></li>
+      <% else %>
+      <li><%= link_to "Sign Up", signup_path %></li>
+      <li><%= link_to "Sign In", signin_path %></li>
+      <% end %>
+    </ul>
   </div>
+</div>
 
-  <!-- Main jumbotron for a primary marketing message or call to action -->
+<!-- Main jumbotron for a primary marketing message or call to action -->
 
 
-  <div class="container">
+<div class="container">
 
-    <% if flash[:success] %>
-    <div class="alert alert-success" role="alert">
-      <%= flash[:success] %>
-    </div>
-    <% end %>
-
-    <% if flash[:notice] %>
-    <div class="alert alert-info" role="alert">
-      <%= flash[:notice] %>
-    </div>
-    <% end %>
-
-    <%= yield %>
-    <br>
+  <% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
   </div>
+  <% end %>
 
-  <footer>
-    <div class="container">
-      <hr>
-      <div class="row">
-        <div class="col-sm-offset-4 col-md-6">
-          <%= link_to "About", about_path %>  |
-          <%= link_to "Terms", terms_path %> |
-          <%= link_to "FAQ", faq_path %> |
-          <%= link_to "Users", users_path %> |
-          <%= link_to "Projects", projects_path %>
-        </div>
+  <% if flash[:notice] %>
+  <div class="alert alert-info" role="alert">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
 
-        <!-- <div class="col-md-6">
-          <div class="pull-right">
-            <%= link_to "www.linkedin.com/pub/kendra-dodds/70/b47/413/" do %>
-            <%= image_tag("linkedinLogo.png", width: "20em") %>
-            <% end %>
-
-            <%= link_to "https://github.com/ardnek" do %>
-            <%= image_tag("githubLogo.png", width: "20em") %>
-            <% end %>
-
-            <%= link_to "https://twitter.com/kendradodds" do %>
-            <%= image_tag("twitterLogo.png", width: "20em") %>
-            <% end %>
-
-            <%= link_to "https://students.gschool.it/students/104" do %>
-            <%= image_tag("gschool.png", width: "20em") %>
-            <% end %>
-          </div>
-        </div> -->
-      </div>
-    </div>
-  </footer>
-  <!-- /container -->
+  <%= yield %>
   <br>
+</div>
+
+<footer>
+  <div class="container">
+    <hr>
+    <div class="row">
+      <div class="col-sm-offset-4 col-md-6">
+        <%= link_to "Home", root_path %> |
+        <%= link_to "About", about_path %>  |
+        <%= link_to "Terms", terms_path %> |
+        <%= link_to "FAQ", faq_path %>
+        <!-- <%= link_to "Users", users_path %> |
+        <%= link_to "Projects", projects_path %> -->
+      </div>
+
+      <!-- <div class="col-md-6">
+      <div class="pull-right">
+      <%= link_to "www.linkedin.com/pub/kendra-dodds/70/b47/413/" do %>
+      <%= image_tag("linkedinLogo.png", width: "20em") %>
+      <% end %>
+
+      <%= link_to "https://github.com/ardnek" do %>
+      <%= image_tag("githubLogo.png", width: "20em") %>
+      <% end %>
+
+      <%= link_to "https://twitter.com/kendradodds" do %>
+      <%= image_tag("twitterLogo.png", width: "20em") %>
+      <% end %>
+
+      <%= link_to "https://students.gschool.it/students/104" do %>
+      <%= image_tag("gschool.png", width: "20em") %>
+      <% end %>
+    </div>
+  </div> -->
+</div>
+</div>
+</footer>
+<!-- /container -->
+<br>
 </body>
 </html>
