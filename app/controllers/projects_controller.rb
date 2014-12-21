@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
   def index
     @projects = Project.all
     #instantiate an instance of the TrackerAPI class. tracker_api variable is instance of the class
@@ -19,6 +20,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
       redirect_to project_tasks_path(@project), notice: "Project was successfully created."
+      Membership.create(project_id: @project.id, user_id: current_user.id, role: "Owner")
     else
       render :new
     end

@@ -19,7 +19,7 @@ class MembershipsController < ApplicationController
   #end
 
   def create
-    #@membership = @project.memberships.new-- create a new member and associate it with projects -- NO!
+    #@membership = @project.memberships.new(membership_params)-- create a new member and associate it with projects -- NO!
     @membership = Membership.new(membership_params)
     @membership.project = @project
     if @membership.save
@@ -51,8 +51,12 @@ class MembershipsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def membership_params
-    params.require(:membership).permit(:user_id, :role)
+    params.require(:membership).permit(:user_id, :project_id, :role)
     #params.require(:membership).permit(:user_id, :title).merge(:project_id => params[:project_id])
   end
+
+  # def current_user_has_membership?
+  #   @membership.user.id == current_user.id
+  # end
 
 end
