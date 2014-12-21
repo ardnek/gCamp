@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     project_params=params.require(:project).permit(:name)
     @project = Project.new(project_params)
     if @project.save
-      redirect_to projects_path, notice: "Project was successfully created."
+      redirect_to project_tasks_path(@project), notice: "Project was successfully created."
     else
       render :new
     end
