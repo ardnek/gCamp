@@ -12,6 +12,8 @@
 <h3>My Projects</h3>
 </div> -->
 
+
+
 <table class="table table-condensed">
   <thead>
     <tr>
@@ -32,6 +34,9 @@
   </tbody>
 </table>
 
+
+<% if current_user.pivotal_tracker_token.present? %>
+
 <div class="page-header">
   <h3>Pivotal Tracker Projects</h3>
 </div>
@@ -51,3 +56,4 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
