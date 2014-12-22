@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :authorize_member, only: [:show]
 
   def index
     @projects = Project.all
@@ -53,6 +54,13 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  def authorize_member
+    @project = Project.find(params[:id])
+    unless current_user_member?
+      render file: 'public/404', status: :not_found, layout: false
+    end
+  end
 
   # def project_params
   #   params.required(:project).permit(:name)
