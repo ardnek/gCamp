@@ -17,12 +17,12 @@ class ApplicationController < ActionController::Base
   helper_method :require_login
   helper_method :current_user_member?
   helper_method :owner?
-  
+
 
   private
 
   def owner?
-    @project.memberships.where(role: 'Owner', user_id: current_user).exists?
+    @project.memberships.where(role: 'Owner', user_id: current_user.id).exists?
   end
 
   # def member?
