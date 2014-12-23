@@ -6,6 +6,8 @@ class MembershipsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
+  before_action :authorize_member
+
 
   def index
     @membership = Membership.new
@@ -50,6 +52,12 @@ class MembershipsController < ApplicationController
   def membership_params
     params.require(:membership).permit(:user_id, :project_id, :role)
     #params.require(:membership).permit(:user_id, :title).merge(:project_id => params[:project_id])
+  end
+
+  def authorize_member
+    unless current_user_member?
+      render file: 'public/404', status: :not_found, layout: false
+    end
   end
 
   # def current_user_has_membership?
