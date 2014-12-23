@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
 
   def current_user
+    session[:user_id]
     User.find_by(id: session[:user_id])
     # @current_user ||= User.find_by(id: session[:user_id])
   end
@@ -14,6 +15,15 @@ class ApplicationController < ActionController::Base
   def projects
     @projects = Project.all
   end
+
+  # def authorize_owner
+  #   current_user.owner?(@project)
+  # end
+  #
+  # def authorize_member
+  #   current_user.member?(@project)
+  # end
+  #
 
 
   def current_user_member?
@@ -28,9 +38,16 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless current_user
+      session[:first_url] = request.url if request.get?
       #flash[:notice] = "You must be logged in to access that action."
       redirect_to sign_in_path, notice: "You must be logged in to access that action."
     end
   end
+
+  def redirect_to_previous_url_or_project
+    redirect_to (session[:first_url] || projects_path)
+    session.delete(:first_url)
+  end
+
 
 end
