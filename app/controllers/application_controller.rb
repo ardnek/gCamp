@@ -5,36 +5,43 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   before_action :projects
 
+  def projects
+    @projects = Project.all
+  end
+
+  # def authorize_member
+  #   current_user.member?(@project)
+  # end
+
+  helper_method :current_user
+  helper_method :require_login
+  helper_method :current_user_member?
+  helper_method :owner?
+  
+
+  private
+
+  def owner?
+    @project.memberships.where(role: 'Owner', user_id: current_user).exists?
+  end
+
+  # def member?
+  #   @project.memberships.where(role: 'Member', user_id: current_user).exists?
+  # end
+
+  def current_user_member?
+    @project.memberships.where(user_id: current_user).exists?
+  end
+
+  # def guest?
+  #   current_user == nil
+  # end
 
   def current_user
     session[:user_id]
     User.find_by(id: session[:user_id])
     # @current_user ||= User.find_by(id: session[:user_id])
   end
-
-  def projects
-    @projects = Project.all
-  end
-
-  # def authorize_owner
-  #   current_user.owner?(@project)
-  # end
-  #
-  # def authorize_member
-  #   current_user.member?(@project)
-  # end
-  #
-
-
-  def current_user_member?
-    @project.memberships.where(user_id: current_user).exists?
-  end
-
-  helper_method :current_user
-  helper_method :require_login
-  helper_method :current_user_member?
-
-  private
 
   def require_login
     unless current_user
@@ -48,6 +55,4 @@ class ApplicationController < ActionController::Base
     redirect_to (session[:first_url] || projects_path)
     session.delete(:first_url)
   end
-
-
 end
