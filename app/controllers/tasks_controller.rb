@@ -4,9 +4,8 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
-
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize_member
 
   def index
     @tasks = params[:type] == "incomplete"
@@ -16,17 +15,14 @@ class TasksController < ApplicationController
     end
   end
 
-
   def show
     #@task = @project.tasks.find(params[:id])
     @comment = @task.comments.new
   end
 
-
   def new
     @task = @project.tasks.new
   end
-
 
   def edit
     @edit_task = true
@@ -55,8 +51,6 @@ class TasksController < ApplicationController
     redirect_to project_tasks_path, notice: 'Task was successfully destroyed.'
   end
 
-
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_task
@@ -67,4 +61,12 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:description, :complete, :date)
   end
+
+  def authorize_member
+    unless current_user_member?
+      render file: 'public/404', status: :not_found, layout: false
+    end
+  end
+
+
 end

@@ -30,8 +30,6 @@ class MembershipsController < ApplicationController
     end
   end
 
-
-
   def update
     @membership = Membership.find(params[:id])
     @membership.update(membership_params)
@@ -44,7 +42,6 @@ class MembershipsController < ApplicationController
     @membership.destroy
     redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was removed successfully."
   end
-
 
   private
   # Use callbacks to share common setup or constraints between actions.

@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :require_login
-  helper_method :member?
+  helper_method :current_user_member?
 
   private
 
