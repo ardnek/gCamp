@@ -8,11 +8,11 @@ class MembershipsController < ApplicationController
 
   before_action :authorize_member
   before_action :authorize_owner, only: [:update]
+  # before_action :authorize_current_user_membership
 
   def index
     @membership = Membership.new
     @memberships = @project.memberships
-
     #@memberships = Membership.all
   end
 
@@ -67,6 +67,13 @@ class MembershipsController < ApplicationController
       render file: 'public/404', status: :not_found, layout: false
     end
   end
+
+  # def authorize_current_user_membership
+  #   @project = Project.find(params[:project_id])
+  #   unless current_user_member?
+  #     render file: 'public/404', status: :not_found, layout: false
+  #   end
+  # end
 
   # def current_user_has_membership?
   #   @membership.user.id == current_user.id
