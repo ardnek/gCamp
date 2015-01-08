@@ -22,7 +22,11 @@
           <%= mail_to user.email %>
         <% end %>
       </td>
-      <td><%= link_to "Edit", edit_user_path(user) %></td>
+      <td>
+        <% if current_user == user %>
+          <%= link_to "Edit", edit_user_path(user) %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
