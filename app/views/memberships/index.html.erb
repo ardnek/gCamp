@@ -28,47 +28,38 @@
 <table class="table table-condensed">
   <tbody>
 
-    <% @project.memberships.each do |membership| %>
-    <%= form_for [@project, membership] do |f| %>
+  <% @project.memberships.each do |membership| %>
+  <%= form_for [@project, membership] do |f| %>
 
-    <tr>
-      <% if owner? %>
-      <% if membership.not_last_owner? == true %>
-      <td class="col-md-2"><%= link_to membership.user.full_name, user_path(membership.user) %></td>
+  <tr>
+  <% if owner? && membership.not_last_owner? == true %>
+  <td class="col-md-2"><%= link_to membership.user.full_name, user_path(membership.user) %></td>
+  <td class="col-md-1"><%= f.select :role, ["Member", "Owner"], {include_blank: false}, {class: "form-control"} %></td>
+  <td class="col-md-1"><%= f.submit "Update", class: "btn btn-info btn-sm" %></td>
+  <td><%= link_to "", project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?'}, class: "glyphicon glyphicon-remove" %></td>
 
-      <td class="col-md-1"><%= f.select :role, ["Member", "Owner"], {include_blank: false}, {class: "form-control"} %></td>
+  <% elsif owner? && membership.not_last_owner? == false %>
+  <td class="col-md-2"><%= link_to membership.user.full_name, user_path(membership.user) %></td>
+  <td class="col-md-1"><%= f.select :role, ["Member", "Owner"], {include_blank: false}, {class: "form-control"} %></td>
+  <td class="col-md-1"><%= f.submit "Update", class: "btn btn-info btn-sm" %></td>
+  <td><em>Unable to delete the last owner</em></td>
 
-      <td class="col-md-1">
-        <%= f.submit "Update", class: "btn btn-info btn-sm" %>
-      </td>
+  <% else %>
+  <td class="col-md-2"><%= link_to membership.user.full_name, user_path(membership.user) %></td>
+  <td class="col-md-1"><%= membership.role %></td>
+  <td class="col-md-1"></td>
 
-      <td>
-        <%= link_to "", project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?'},
-        class: "glyphicon glyphicon-remove" %>
-      </td>
-
-      <% else %>
-      <td class="col-md-2"><%= link_to membership.user.full_name, user_path(membership.user) %></td>
-      <td class="col-md-1"><%= membership.role %></td>
-
-      <td>
-        <% if current_user.id == membership.user_id %>
-        <% if membership.not_last_owner? == true %>
-        <%= link_to "", project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?'},
-        class: "glyphicon glyphicon-remove" %>
-        <% end %>
-        <% end %>
-      </td>
-      <td>
-        <% if membership.not_last_owner? == false %>
-        <em>Unable to delete the last owner</em>
-        <% end %>
-      </td>
-      <% end %>
-      <% end %>
-    </tr>
-
+  <td>
+    <% if current_user.id == membership.user_id %>
+    <% if membership.not_last_owner? == true %>
+    <%= link_to "", project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?'}, class: "glyphicon glyphicon-remove" %>
     <% end %>
     <% end %>
-  </tbody>
+  </td>
+  <% end %>
+</tr>
+
+<% end %>
+<% end %>
+</tbody>
 </table>
