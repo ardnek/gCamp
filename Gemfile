@@ -5,13 +5,13 @@ ruby '2.2.0'
 gem "faraday"
 
 gem "pg"
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails'
   gem "capybara"
   gem 'launchy'
   gem 'pry-rails', '~> 0.3.2'
-  gem 'faker'
 end
 
 group :production do
