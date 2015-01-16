@@ -17,12 +17,18 @@ class ApplicationController < ActionController::Base
   helper_method :require_login
   helper_method :current_user_member?
   helper_method :owner?
+  helper_method :admin?
+  helper_method :guest?
 
 
   private
 
   def owner?
-    @project.memberships.where(role: 'Owner', user_id: current_user.id).exists?
+    @project.memberships.where(role: 'Owner', user_id: current_user.id).exists? || current_user.admin?
+  end
+
+  def admin?
+    self.admin
   end
 
   # def member?
@@ -30,7 +36,7 @@ class ApplicationController < ActionController::Base
   # end
 
   def current_user_member?
-    @project.memberships.where(user_id: current_user).exists?
+    @project.memberships.where(user_id: current_user).exists? || current_user.admin?
   end
 
   # def guest?
