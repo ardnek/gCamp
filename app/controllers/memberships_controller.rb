@@ -33,6 +33,7 @@ class MembershipsController < ApplicationController
   end
 
   def update
+    # add logic here check existing memberships-- to see if there's an owner-- before update action
     @membership = Membership.find(params[:id])
     @membership.update(membership_params)
     redirect_to project_memberships_path, notice: "#{@membership.user.full_name} was updated successfully."
