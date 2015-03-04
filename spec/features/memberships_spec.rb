@@ -4,7 +4,7 @@ require 'rails_helper'
 
 feature "Memberships" do
 
-  scenario "User adds a member to a project" do
+  xscenario "User adds a member to a project" do
 
     project = create_project(name: "Acme")
     create_user(first_name: "Ed", last_name: "Smith")

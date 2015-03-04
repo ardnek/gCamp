@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "Projects" do
 
-  scenario "User creates, edits, deletes project" do
+  xscenario "User creates, edits, deletes project" do
     visit root_path
     click_on "Projects"
 

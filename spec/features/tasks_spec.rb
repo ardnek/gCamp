@@ -14,7 +14,7 @@ feature "Tasks" do
     )
   end
 
-  scenario "User creates, edits, deletes task" do
+  xscenario "User creates, edits, deletes task" do
     visit projects_path
     click_on "Feed Buddy"
     click_on "0 Tasks"
@@ -38,7 +38,7 @@ feature "Tasks" do
     # find(".glyphicon").click
   end
 
-  scenario "User must enter description of a task" do
+  xscenario "User must enter description of a task" do
     visit projects_path
     click_on "Feed Buddy"
     click_on "0 Tasks"

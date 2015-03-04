@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "Users" do
 
-  scenario "User creates, edits, deletes user" do
+  xscenario "User creates, edits, deletes user" do
     visit users_path
     click_on "Create user"
     fill_in "First name", with: "Lois"
