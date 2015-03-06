@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# ruby '2.1.3'
+ruby '2.1.3'
 # ruby '2.2.0' changed on 2015-03-03 for travis
 
 gem "faraday"
