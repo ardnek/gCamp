@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ardnek/gCamp.svg?branch=master)](https://travis-ci.org/ardnek/gCamp)
 
-Production URL: https://damp-savannah-5107.herokuapp.com/
+Production URL: https://gcamp-kd.herokuapp.com/
 
 A project management application that has some of the same functionality as Basecamp, allowing users to collaborate on many different projects and track their progress.
 
